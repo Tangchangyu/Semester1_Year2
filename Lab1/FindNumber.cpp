@@ -3,35 +3,61 @@
 //采用二分查找
 
 
-int FindNumber(int num[], int size , int t){
+// int FindNumber(int num[], int size , int t){
 
-    int tag = 0 ;    //标记检验数字的序列
+//     int tag = 0 ;    //标记检验数字的序列
 
-    for(int exp = 1; exp ;exp++){
-        if (num[tag]== t){
-            return tag;
+//     for(int exp = 1; exp ;exp++){
+//         if (num[tag]== t){
+//             return tag;
+//         }
+//     }
+
+//         else if(num[tag] < t){
+//             if (0== size/std::pow(2,exp)){
+//                 return tag+1;
+//             }
+//             tag += size / std::pow(2,exp);
+//         }
+
+//         else if (num[tag]> t ){
+//             if (0== size/std::pow(2,exp)){
+//                 return tag;
+//             }
+//             tag -= size / std::pow(2,exp);
+//         }
+  
+//}
+//解决问题：遇到数组外的数字会死循环
+//初始值修复 
+
+
+//重写二分查找
+ int FindNumber(int num[], int size , int t){
+    int *left = num;
+    int *right = num +size - 1;
+   
+    while (left != right){
+
+    int *mid = left + (right - left)/2;
+
+        if (t < *mid ){
+            right = mid ;
+        }
+
+        else if (t > *mid){
+            left = mid ;
+        }
+
+        else if (t == *mid){
+            return (mid - num);
         }
     }
 
-        else if(num[tag] < t){
-            if (0== size/std::pow(2,exp)){
-                return tag+1;
-            }
-            tag += size / std::pow(2,exp);
-        }
+    return (left - num +1)
 
-        else if (num[tag]> t ){
-            if (0== size/std::pow(2,exp)){
-                return tag;
-            }
-            tag -= size / std::pow(2,exp);
-        }
+ }
 
-        
-    
-}
-//解决问题：遇到数组外的数字会死循环
-//初始值修复 
 
 
 //----题目二---//
