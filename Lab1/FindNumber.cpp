@@ -40,13 +40,13 @@
     while (left != right){
 
     int *mid = left + (right - left)/2;
-
+        //在迭代left/right的时候，跳过mid
         if (t < *mid ){
-            right = mid ;
+            right = mid - 1;
         }
 
         else if (t > *mid){
-            left = mid ;
+            left = mid + 1;
         }
 
         else if (t == *mid){
