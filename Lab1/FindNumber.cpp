@@ -61,3 +61,48 @@ COMPARE Compare(int a[],int b[],int n,int m){
     else return COMPARE::EQUALL;    
 }
 
+
+//---题目三---//
+class SparseMatrix{
+    public:
+    SparseMatrix FastTranspose();
+}
+
+//观察发现，rowSize只用于构造rowStart，可以省略
+
+SparseMatrix SparseMatrix::FastTranspose()
+{
+    SparseMatrix b (cols,rows,terms);
+    if (terms > 0){
+        int *rowStart = new int[cols];
+
+        fill(rowStart,rowStart+cols, 0);
+
+        for (int i = 0; i < terms; i ++){
+            rowStart[smArray[i].col]++;
+
+        }//构造原本的rowSize
+
+        for (int i = 1; i < cols ; i++){
+            rowStart[i]+=rowStart[i-1];
+            //计算总计输入的数字，也就是说标记下一行开始的位置，
+        }
+
+        for (int i = cols -1 ; i>0 ; i--){
+            rowStart[i] = rowStart[i-1];
+        }
+        rowStart[0]= 0;
+
+
+        for(int i = 0; i < terms; i ++){
+            int j = rowStart[smArray[i].col]; 
+            b.smArray[j].row = smArray[i].col;
+            b.smArray[j].col = smArray[i].row;
+            b.smArray[j].value = smArray[i].value;
+            
+        }
+        delete []rowStart;
+    }
+
+
+}
