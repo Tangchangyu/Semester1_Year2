@@ -1,5 +1,6 @@
 # include<cmath>
 
+//---题目一---//
 //采用二分查找
 
 
@@ -37,7 +38,7 @@
     int *left = num;
     int *right = num +size - 1;
    
-    while (left != right){
+    while (left <= right){
 
     int *mid = left + (right - left)/2;
         //在迭代left/right的时候，跳过mid
@@ -54,7 +55,7 @@
         }
     }
 
-    return (left - num +1)
+    return (left - num);
 
  }
 
@@ -125,10 +126,12 @@ SparseMatrix SparseMatrix::FastTranspose()
             b.smArray[j].row = smArray[i].col;
             b.smArray[j].col = smArray[i].row;
             b.smArray[j].value = smArray[i].value;
+            rowStart[smArray[i].col]++;
             
         }
         delete []rowStart;
     }
-
+    return bitand;
 
 }
+
