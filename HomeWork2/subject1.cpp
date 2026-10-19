@@ -1,4 +1,4 @@
-
+#include<iostream>
 
 //先写一个头节点的链表；
 template <class T>
@@ -21,6 +21,10 @@ public:
 template<class T>
 bool findLastK(List<T> list, unsigned int k)//传入目标链表，参数k
 {
+    if (list.head == nullptr || k == 0){
+        return 0;
+    }
+
     int i = 0;  //计数器
 
     Node<T>* toolPointer = list.head;
@@ -45,6 +49,8 @@ bool findLastK(List<T> list, unsigned int k)//传入目标链表，参数k
     }
 
     if (target == nullptr) return 0;    //链表不足k个元素，查找失败
-    else return 1;
+    else{
+        std::cout<<target->data;
+        return 1;}
 
 }
