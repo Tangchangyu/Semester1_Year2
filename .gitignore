@@ -1,0 +1,12 @@
+# macOS 系统文件
+.DS_Store
+
+# 编译生成的可执行文件
+Compare
+SparseMatrixTranspose
+
+# macOS 调试符号文件夹
+*.dSYM/
+
+# VS Code 配置目录
+.vscode/
