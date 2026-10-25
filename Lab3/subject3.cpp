@@ -20,21 +20,12 @@ public:
         Node<T> pointer1 = list1.head;
         Node<T> pointer2 = list2.head;
 
-        bool endTheLoop = false;
-
-        while (endTheLoop == false&&pointer1== nullptr)
+        while (pointer1!=pointer2)
         {
             pointer1 = ((pointer1 != nullptr)?pointer1->tail:list2.head);
             pointer2 = ((pointer2 != nullptr)?pointer2->tail:list2.head);
-            if (p1 == nullptr){
-                endTheLoop = true;
-            }
-            if (pointer1==pointer2){
-                return pointer1;
-            }
         }
-        
+        return pointer1;//p1=p2 或 二者都为nullptr；
     }
 
-    return nullptr;
 };
