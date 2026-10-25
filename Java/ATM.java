@@ -1,4 +1,3 @@
-import java.security.PublicKey;
 import java.util.Scanner;
 
 
@@ -28,12 +27,11 @@ public class ATM {
 
 
             //异常操作数处理
-            if (next_operation<= 0 && next_operation>4){
+            if (next_operation<= 0 || next_operation>4){
                 System.out.println("The wrong number , please select again:");
                 next_operation = 0;
             }
 
-            {
             switch (next_operation) {
                 case 0:
                     break;
@@ -56,10 +54,8 @@ public class ATM {
                 default:
                     break;
             }//下一步操作
-
+        
         }
-        return;
-}
 
     }
 
@@ -73,7 +69,7 @@ public class ATM {
         }
 
         else {
-            balance =+ money_to_deposit;
+            balance += money_to_deposit;
             System.out.println("Successful deposit.\nNow you balance is :");
             System.out.print(balance);
             return ;
